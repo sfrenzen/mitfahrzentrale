@@ -1,6 +1,7 @@
 package de.hsba.a16.bi.mitfahrzentrale.trip;
 
 
+import de.hsba.a16.bi.mitfahrtszentrale.user.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,11 +36,29 @@ public class TripServices {
 	public void delete(Long id) {
 		this.repository.deleteById(id);
 	}
+	// make it a trip bookable
+	public void bookable (Long id){
+		Trip trip = repository.findById(id).orElse(null);
+		boolean temp = trip.isBookable();
+		// if true turn it false
+		if (temp==true){
+			temp=false;}
+			else{
+				temp= true;
+		}
+		trip.setBookable(temp);
+	}
 	// add rating and making a trip and rating as parameter to call this function
 	public void addRating (Trip trip, TripRating rating){
 		rating.setTrip(trip);
 		trip.getRatingList().add(rating);
 	}
+	// find the private posts of current user.
+	public Collection<Trip> findUsertrips() {
+		return repository.findAllByOwnedByCurrentUser(User.getCurrentUser());
+	}
+
+
 	// this area is for triprating
 	//find all rating
 	public TripRating findTripRating(Long id) {

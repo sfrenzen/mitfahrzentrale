@@ -1,6 +1,6 @@
-package de.hsba.a16.bi.mitfahrzentrale.web;
+package de.hsba.a16.bi.mitfahrtszentrale.web;
 
-import de.hsba.a16.bi.mitfahrzentrale.trip.TripServices;
+import de.hsba.a16.bi.mitfahrtszentrale.trip.TripServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,5 +27,10 @@ public class AllTripsController {
 	public String delete(@PathVariable("id") Long id) {
 		tripServices.delete(id);
 		return "redirect:/all-trips";
+	}
+	@PostMapping("/all-trips/bookable/{id}")
+	public String makeItBookable(@PathVariable("id") Long id) {
+		tripServices.bookable(id);
+		return "redirect:/personal";
 	}
 }

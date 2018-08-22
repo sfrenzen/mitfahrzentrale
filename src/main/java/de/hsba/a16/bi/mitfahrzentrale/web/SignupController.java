@@ -18,7 +18,7 @@ import javax.validation.Valid;
 public class SignupController {
     private final UserService userService;
     private final SignupFormAssembler formAssembler;
-	// TODO: 13.08.2018 Form Validation fï¿½r diese Seite muss fï¿½r diese Seite erstellt werden 
+	// TODO: 13.08.2018 Form Validation fï¿?r diese Seite muss fï¿?r diese Seite erstellt werden 
 
 	public SignupController(UserService userService, SignupFormAssembler formAssembler) {
 		this.userService = userService;
@@ -27,7 +27,7 @@ public class SignupController {
 	//  jeder kann den URL aufrufen
 	@GetMapping("/signup")
     public String signupShow (Model model){
-		// nur fï¿½r Testzwecke todo lï¿½schen, wenn Ihr das nicht mehr bracht .. vergis bitte auch nicht den Code bei HTML zu lï¿½schen auch
+		// nur fï¿?r Testzwecke todo lï¿?schen, wenn Ihr das nicht mehr bracht .. vergis bitte auch nicht den Code bei HTML zu lï¿?schen auch
        model.addAttribute("signupForm", new SignupFormValidation());
         return "signup";
     }

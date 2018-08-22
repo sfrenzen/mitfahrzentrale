@@ -11,14 +11,13 @@
 			Unsere Fahrten
 		</h1>
 	</div>
-	<table th:if="${!allTrips.empty}" class="table table-responsive-md table-bordered table-success">
+	<table th:if="${!allTrips.empty}" class="table table-responsive-md table-borderless table-success">
 		<tr>
-			<th>#</th>
 			<th>Start</th>
 			<th>Ende</th>
 			<th>Date des Trips</th>
 			<th>Preis</th>
-			<th>Verfügbare Plätze</th>
+			<th>Verfuegbare Plaetze</th>
 			<th>Pet</th>
 			<th>Smoking</th>
 			<th>Buchbar</th>
@@ -26,12 +25,8 @@
 			<th>Average rating</th><!-- Delete Option nur für den Owner -->
 			<th>First Name</th> <!-- der Vorname nur für den Owner gezeigt wird -->
 			<th>Options</th><!-- hier wird der Owner gezeigt -->
-
-
-
 		</tr>
-		<tr th:each="trip :${allTrips}">
-			<td th:text="${trip.id}"></td>
+		<tr th:each="trip :${allTrips}" th:classappend="${trip.bookable}? '':'table table-responsive-md table-dark'">
 			<td th:text="${trip.start}"></td>
 			<td th:text="${trip.end}"></td>
 			<td th:text="${trip.date}"></td>
@@ -50,9 +45,10 @@
 				</form>
 			</td>
 			<!-- wenn es nicht von dem eingelogten User besetzt und es ist buckbar, wird die Buchungsoption erscheinen -->
-			<td th:if="${!trip.ownedByCurrentUser && trip.bookable==true}">
+			<td th:if="${!trip.ownedByCurrentUser}">
 				<form th:action="@{'http://localhost:8080/all-trips/booking/'+${trip.id}}" method="post">
-					<input type="submit" class="btn btn-info" th:value="Buchen">
+					<input type="submit" th:classappend="${trip.bookable}? 'btn btn-info':'btn btn-dark'"
+						   th:value="Buchen" th:disabled="${!trip.bookable}">
 				</form>
 			</td>
 
