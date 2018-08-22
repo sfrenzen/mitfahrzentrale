@@ -32,7 +32,7 @@ public class SignupFormValidation {
 		this.password = password;
 	}
 
-	@Email(message = "Die Form Ihrer E-Mail ist nicht vollst√§ndig")
+	@Email(message = "Die Form Ihrer E-Mail ist nicht vollst√?ndig")
 	private String email;
 
 	public SignupFormValidation() {

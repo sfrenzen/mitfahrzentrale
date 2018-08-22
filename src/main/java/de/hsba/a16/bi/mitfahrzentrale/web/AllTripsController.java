@@ -41,4 +41,9 @@ public class AllTripsController {
         return "trips/all-trips";
 	}
 
+	@PostMapping("/all-trips/bookable/{id}")
+	public String makeItBookable(@PathVariable("id") Long id) {
+		tripServices.bookable(id);
+		return "redirect:/personal";
+	}
 }
