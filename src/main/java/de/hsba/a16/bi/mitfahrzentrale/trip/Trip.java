@@ -11,6 +11,7 @@ import java.util.*;
 @Entity
 @Table(name = "trip")
 @Component
+// Folgende Klasse repräsentiert eine Fahrt
 public class Trip {
     @Id @GeneratedValue
     private Long id;
