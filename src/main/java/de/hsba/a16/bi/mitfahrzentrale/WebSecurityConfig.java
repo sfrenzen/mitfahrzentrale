@@ -1,4 +1,4 @@
-package de.hsba.a16.bi.mitfahrtszentrale;
+package de.hsba.a16.bi.mitfahrzentrale;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;

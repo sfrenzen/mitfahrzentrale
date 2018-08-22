@@ -1,4 +1,4 @@
-package de.hsba.a16.bi.mitfahrtszentrale.user;
+package de.hsba.a16.bi.mitfahrzentrale.user;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 

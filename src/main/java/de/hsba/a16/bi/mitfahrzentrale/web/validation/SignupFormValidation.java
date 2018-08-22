@@ -1,6 +1,6 @@
-package de.hsba.a16.bi.mitfahrtszentrale.web.validation;
+package de.hsba.a16.bi.mitfahrzentrale.web.validation;
 
-import de.hsba.a16.bi.mitfahrtszentrale.user.User;
+import de.hsba.a16.bi.mitfahrzentrale.user.User;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
@@ -32,7 +32,7 @@ public class SignupFormValidation {
 		this.password = password;
 	}
 
-	@Email(message = "Die Form Ihrer E-Mail ist nicht vollst‰ndig")
+	@Email(message = "Die Form Ihrer E-Mail ist nicht vollst√?ndig")
 	private String email;
 
 	public SignupFormValidation() {

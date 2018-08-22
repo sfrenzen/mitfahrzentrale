@@ -1,9 +1,9 @@
-package de.hsba.a16.bi.mitfahrtszentrale.web;
+package de.hsba.a16.bi.mitfahrzentrale.web;
 
-import de.hsba.a16.bi.mitfahrtszentrale.trip.Trip;
-import de.hsba.a16.bi.mitfahrtszentrale.trip.TripRating;
-import de.hsba.a16.bi.mitfahrtszentrale.trip.TripServices;
-import de.hsba.a16.bi.mitfahrtszentrale.web.fehler.NotFoundException;
+import de.hsba.a16.bi.mitfahrzentrale.trip.Trip;
+import de.hsba.a16.bi.mitfahrzentrale.trip.TripRating;
+import de.hsba.a16.bi.mitfahrzentrale.trip.TripServices;
+import de.hsba.a16.bi.mitfahrzentrale.web.fehler.NotFoundException;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +20,7 @@ public class TripRatingController {
 	public TripRatingController(TripServices tripServices) {
 		this.tripServices = tripServices;
 	}
-	// Fahrt mit den ID={id} aufrufen .. wenn die Fahrt nicht exitiert wird eine Exception aufgelöst
+	// Fahrt mit den ID={id} aufrufen .. wenn die Fahrt nicht exitiert wird eine Exception aufgelï¿½st
 	@ModelAttribute("tripNumber")
 	public Trip getTrip(@PathVariable("id") Long id){
 		Trip rating = tripServices.findTripById(id);

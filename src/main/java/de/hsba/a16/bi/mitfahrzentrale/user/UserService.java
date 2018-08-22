@@ -1,4 +1,4 @@
-package de.hsba.a16.bi.mitfahrtszentrale.user;
+package de.hsba.a16.bi.mitfahrzentrale.user;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-	// Diese Nutzer wurde schon definiert und damit ist die Einlogen schon möglich
+	// Diese Nutzer wurde schon definiert und damit ist die Einlogen schon mï¿½glich
     @PostConstruct
     public void init() {
         if (userRepository.count() == 0) {

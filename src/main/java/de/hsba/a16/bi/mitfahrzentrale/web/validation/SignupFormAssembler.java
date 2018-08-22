@@ -1,6 +1,6 @@
-package de.hsba.a16.bi.mitfahrtszentrale.web.validation;
+package de.hsba.a16.bi.mitfahrzentrale.web.validation;
 
-import de.hsba.a16.bi.mitfahrtszentrale.user.User;
+import de.hsba.a16.bi.mitfahrzentrale.user.User;
 import org.springframework.stereotype.Component;
 
 /**

@@ -1,4 +1,4 @@
-package de.hsba.a16.bi.mitfahrtszentrale.trip;
+package de.hsba.a16.bi.mitfahrzentrale.trip;
 import javax.persistence.*;
 
 /**
@@ -17,7 +17,7 @@ public class TripRating {
 	private String comment;
 	private int rate;
 
-	// für die leere Form
+	// fï¿½r die leere Form
 	public TripRating() {
 	}
 

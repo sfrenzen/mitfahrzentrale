@@ -1,12 +1,12 @@
-package de.hsba.a16.bi.mitfahrtszentrale;
+package de.hsba.a16.bi.mitfahrzentrale;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MitfahrtszentraleApplication {
+public class MitfahrzentraleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MitfahrtszentraleApplication.class, args);
+		SpringApplication.run(MitfahrzentraleApplication.class, args);
 	}
 }

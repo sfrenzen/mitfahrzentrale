@@ -1,4 +1,4 @@
-package de.hsba.a16.bi.mitfahrtszentrale.trip;
+package de.hsba.a16.bi.mitfahrzentrale.trip;
 
 
 import de.hsba.a16.bi.mitfahrtszentrale.user.User;

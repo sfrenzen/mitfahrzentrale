@@ -1,9 +1,9 @@
-package de.hsba.a16.bi.mitfahrtszentrale.web;
+package de.hsba.a16.bi.mitfahrzentrale.web;
 
-import de.hsba.a16.bi.mitfahrtszentrale.web.validation.TripFormAssembler;
-import de.hsba.a16.bi.mitfahrtszentrale.web.validation.TripFormValidation;
-import de.hsba.a16.bi.mitfahrtszentrale.trip.Trip;
-import de.hsba.a16.bi.mitfahrtszentrale.trip.TripServices;
+import de.hsba.a16.bi.mitfahrzentrale.trip.Trip;
+import de.hsba.a16.bi.mitfahrzentrale.trip.TripServices;
+import de.hsba.a16.bi.mitfahrzentrale.web.validation.TripFormAssembler;
+import de.hsba.a16.bi.mitfahrzentrale.web.validation.TripFormValidation;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

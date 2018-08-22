@@ -1,6 +1,6 @@
-package de.hsba.a16.bi.mitfahrtszentrale.web;
+package de.hsba.a16.bi.mitfahrzentrale.web;
 
-import de.hsba.a16.bi.mitfahrtszentrale.trip.TripServices;
+import de.hsba.a16.bi.mitfahrzentrale.trip.TripServices;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

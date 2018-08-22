@@ -1,6 +1,6 @@
-package de.hsba.a16.bi.mitfahrtszentrale.web.validation;
+package de.hsba.a16.bi.mitfahrzentrale.web.validation;
 
-import de.hsba.a16.bi.mitfahrtszentrale.trip.Trip;
+import de.hsba.a16.bi.mitfahrzentrale.trip.Trip;
 import javax.validation.constraints.*;
 
 public class TripFormValidation {

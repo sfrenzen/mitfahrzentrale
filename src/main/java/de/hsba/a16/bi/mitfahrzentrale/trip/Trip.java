@@ -1,11 +1,10 @@
-package de.hsba.a16.bi.mitfahrtszentrale.trip;
+package de.hsba.a16.bi.mitfahrzentrale.trip;
 
-import de.hsba.a16.bi.mitfahrtszentrale.user.User;
+import de.hsba.a16.bi.mitfahrzentrale.user.User;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 /**
  *Diese Klasse definiert eine Fahrt
 */
@@ -46,8 +45,6 @@ public class Trip {
 	}
 
 	public void setDate(String date) {
-
-
 		this.date = date;
 	}
 
@@ -133,7 +130,7 @@ public class Trip {
 	}
 
 	// Rechnen von dem Durchschnitt
-	// TODO: 13.08.2018: Hinweis-> solche Methode könnte bei der Buchung angewendet werden, um die Zahl der Verfügbare Plätze bzw. den gesamten Preis zu berechnet.
+	// TODO: 13.08.2018: Hinweis-> solche Methode kï¿½nnte bei der Buchung angewendet werden, um die Zahl der Verfï¿½gbare Plï¿½tze bzw. den gesamten Preis zu berechnet.
 	private double averageRateb(){
 		for(TripRating local:getRatingList()){
 			sum=(sum+local.getRate());
