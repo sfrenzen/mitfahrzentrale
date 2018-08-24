@@ -17,7 +17,6 @@ import javax.validation.Valid;
 
 
 @Controller
-@RequestMapping("/book-trip")
 public class NewTripController {
 	private  final TripServices tripServices;
 	private final TripFormAssembler formAssembler;

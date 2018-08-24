@@ -38,45 +38,74 @@ public class TripServices {
         return repository.findAll();
     }
 
-	// delete a trip
-	public void delete(Long id) {
-		this.repository.deleteById(id);
-	}
-	// make it a trip bookable
-	public void bookable (Long id){
-		Trip trip = repository.findById(id).orElse(null);
-		boolean temp = trip.isBookable();
-		// if true turn it false
-		if (temp==true){
-			temp=false;}
-			else{
-				temp= true;
-		}
-		trip.setBookable(temp);
-	}
-	// add rating and making a trip and rating as parameter to call this function
-	public void addRating (Trip trip, TripRating rating){
-		rating.setTrip(trip);
-		trip.getRatingList().add(rating);
-	}
-	// find the private posts of current user.
-	public Collection<Trip> findUsertrips() {
-		return repository.findAllByOwnedByCurrentUser(User.getCurrentUser());
-	}
+    // delete a trip
+    public void delete(Long id) {
+        this.repository.deleteById(id);
+    }
+
+    // make it a trip bookable
+    public void bookable(Long id) {
+        Trip trip = repository.findById(id).orElse(null);
+        boolean temp = trip.isBookable();
+        // if true turn it false
+        if (temp == true) {
+            temp = false;
+        } else {
+            temp = true;
+        }
+        trip.setBookable(temp);
+    }
+
+    // add rating and making a trip and rating as parameter to call this function
+    public void addRating(Trip trip, TripRating rating) {
+        rating.setTrip(trip);
+        trip.getRatingList().add(rating);
+    }
 
 
-	// this area is for triprating
-	//find all rating
-	public TripRating findTripRating(Long id) {
-		return ratingRepository.findById(id).orElse(null);
-	}
-	// save rating
-	public TripRating saveRating (TripRating rating){
-		return ratingRepository.save(rating);
-	}
+    // find the private posts of current user.
+    public Collection<Trip> findUsertrips() {
+        return repository.findAllByOwnedByCurrentUser(User.getCurrentUser());
+    }
+
+
+    // this area is for triprating
+    //find all rating
+    public TripRating findTripRating(Long id) {
+        return ratingRepository.findById(id).orElse(null);
+    }
+
+    // save rating
+    public TripRating saveRating(TripRating rating) {
+        return ratingRepository.save(rating);
+    }
 
     // Filter-Methode (filtern der Fahrten nach Abfahrts- und Ankunftsort)
     public Collection<Trip> searchTrips(String start, String end) {
         return repository.searchTrips(start, end);
     }
+
+
+    //Methode um Buchung zu erzeugen
+    public void addBooking(Trip trip, Booking booking) {
+        // Trip für Booking (Buchung) setzen
+        booking.setTrip(trip);
+
+        // Buchung zu Trip hinzufügen
+        trip.getBookings().add(booking);
+    }
+
+    //Methode die Anzahl der freien Plätze berechnet
+    public Long getRemainingSeats(Trip trip) {
+        Long sumBookedSeats = 0L;
+        for (Booking booking : trip.getBookings()) {
+            sumBookedSeats = sumBookedSeats + booking.getBookedSeats();
+        }
+
+        Long remainingSeats = trip.getFreeSeats() - sumBookedSeats;
+        return remainingSeats;
+    }
+
+
+
 }

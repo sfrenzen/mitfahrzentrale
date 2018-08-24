@@ -101,6 +101,10 @@ public class Trip {
         this.price = price;
     }
 
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "trip")
+	@OrderBy
+	private List<Booking> bookings;
+
 	public List<TripRating> getRatingList() {
 		if (ratingList == null){
 			ratingList = new ArrayList<>();
@@ -169,4 +173,10 @@ public class Trip {
 		return this.owner != null && this.owner.equals(User.getCurrentUser());
 	}
 
+	public List<Booking> getBookings() {
+		if (bookings == null) {
+			bookings = new ArrayList<>();
+		}
+		return bookings;
+	}
 }
