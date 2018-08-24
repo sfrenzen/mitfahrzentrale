@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 @Transactional
 public interface TripRepository extends JpaRepository<Trip, Long> {
-    // Filter-Methode
+    // Filter-Methode (um nach Abfahrts- und/oder Ankunftsort zu suchen
     @Query("select distinct t from Trip t where t.start = :start and t.end = :end")
     public Collection<Trip> searchTrips(@Param("start") String start, @Param("end") String end);
 

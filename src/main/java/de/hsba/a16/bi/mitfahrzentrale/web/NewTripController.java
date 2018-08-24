@@ -11,11 +11,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
 
 @Controller
+@RequestMapping("/book-trip")
 public class NewTripController {
 	private  final TripServices tripServices;
 	private final TripFormAssembler formAssembler;

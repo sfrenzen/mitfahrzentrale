@@ -1,8 +1,7 @@
-package de.hsba.a16.bi.mitfahrtszentrale.web;
+package de.hsba.a16.bi.mitfahrzentrale.web;
 
-
-import de.hsba.a16.bi.mitfahrtszentrale.trip.TripServices;
-import de.hsba.a16.bi.mitfahrtszentrale.user.User;
+import de.hsba.a16.bi.mitfahrzentrale.trip.TripServices;
+import de.hsba.a16.bi.mitfahrzentrale.user.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
