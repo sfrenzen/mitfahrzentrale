@@ -8,59 +8,57 @@
 
     <div class="page-header mf-header">
         <h1>
-            Unsere Fahrten
+            Fahrt suchen
         </h1>
     </div>
-    <h4 th:text="${'Dies sind alle Fahrten von ' + start + ' nach ' + destination + '.'}"></h4>
     <form class="form-inline" th:action="@{'/all-trips/search/'}" method="get">
         <div class="form-group mb-2">
-            <input type="text" class="btn-outline-info form-control" placeholder="Abfahrtsort" name="start"
+            <input type="text" class="btn-outline-info form-control" placeholder="Start" name="start"
                    th:value="${start}">
         </div>
         <div class="form-group mx-sm-3 mb-2">
-            <input type="text" class="btn-outline-info form-control" placeholder="Ankunftsort" name="destination"
-                   th:value="${destination}">
+            <input type="text" class="btn-outline-info form-control" placeholder="Ziel" name="end"
+                   th:value="${end}">
         </div>
         <input type="submit" class="btn btn-outline-info mb-2" th:value="Suchen">
     </form>
-
     <table th:if="${!allTrips.empty}" class="table table-responsive-md table-borderless table-success">
         <tr>
             <th>Start</th>
-            <th>Ende</th>
-            <th>Date des Trips</th>
+            <th>Ziel</th>
+            <th>Datum</th>
             <th>Preis</th>
-            <th>Verfuegbare Plaetze</th>
-            <th>Pet</th>
-            <th>Smoking</th>
-            <th>Buchbar</th>
-            <th>go to rating</th>
-            <th>Average rating</th><!-- Delete Option nur f�r den Owner -->
-            <th>First Name</th> <!-- der Vorname nur f�r den Owner gezeigt wird -->
-            <th>Options</th><!-- hier wird der Owner gezeigt -->
+            <th>Freie Plaetze</th>
+            <th>Haustiere</th>
+            <th>Raucher</th>
+            <th>Fahrer</th>
+            <th>Fahrer Bewertung</th>
+            <th>Options</th>
         </tr>
-        <tr th:each="trip :${allTrips}" th:classappend="${trip.bookable}? '':'table table-responsive-md table-dark'">
+        <tr th:each="trip :${allTrips}">
             <td th:text="${trip.start}"></td>
             <td th:text="${trip.end}"></td>
-            <td th:text="${trip.date}"></td>
+            <td th:text="${#dates.format(trip.date, 'dd.MM.yyyy - HH:mm')}"></td>
             <!-- wenn der Preis ==0 dann wird Free erscheien, sonst erscheint der Preis -->
             <td th:text="${trip.price==0}?'Free':${trip.price}"></td>
-            <td th:text="${trip.freeSeats}"></td>
-            <td th:text="${trip.pet}?'Ja Gerne':'Nein, Danke'"></td>
-            <td th:text="${trip.smoking}?'Ja Gerne':'Nein, Danke'"></td>
-            <td th:text="${trip.bookable}?'Ja Gerne':'Nein, Danke'"></td>
-            <td><a th:href="${'/trips/'+trip.id}"> Here</a></td>
-            <td th:text="${trip.averageRatingInText}">Rating</td>
-            <td th:text="${trip.getOwner().firstName}"></td>
-            <td th:if="${trip.ownedByCurrentUser}">
-                <form th:action="@{'/all-trips/delete/'+${trip.id}}" method="post">
-                    <input type="submit" class="btn btn-danger" th:value="Delete">
-                </form>
-            </td>
+            <td th:text="${trip.remainingSeats}"></td>
+            <td th:text="${trip.pet}?'Ja':'Nein'"></td>
+            <td th:text="${trip.smoking}?'Ja':'Nein'"></td>
+            <td th:text="${trip.owner.name}"></td>
+            <td th:text="${trip.owner.averageRating > 0 ? trip.owner.averageRating : 'No rating yet' }"></td>
+            <!--<td th:if="${trip.ownedByCurrentUser}">-->
+                <!--<form th:action="@{'/all-trips/delete/'+${trip.id}}" method="post">-->
+                    <!--<input type="submit" class="btn btn-danger" th:value="Delete">-->
+                <!--</form>-->
+            <!--</td>-->
             <!-- wenn es nicht von dem eingelogten User besetzt und es ist buckbar, wird die Buchungsoption erscheinen -->
             <!--<td th:if="${!trip.ownedByCurrentUser && trip.bookable==true}">-->
-            <td th:if="${trip.bookable}">
-                <a th:href="${'/trips/book-trip/'+trip.id}" role="button" class="btn btn-info">Buchen</a>
+
+            <!--Nicht buchbare Fahrten werden erst gar nicht angezeigt-->
+            <td>
+                <!--Buchen Button ist disabled falls Fahrt vom angeldeten Benutzer stammt-->
+                <a th:if="${!trip.isOwnedByCurrentUser()}" th:href="${'/trips/book-trip/'+trip.id}" role="button" class="btn btn-info">Buchen</a>
+                <a th:href="${'/all-trips/'+trip.id}" role="button" class="btn btn-light">Details</a>
             </td>
         </tr>
     </table>

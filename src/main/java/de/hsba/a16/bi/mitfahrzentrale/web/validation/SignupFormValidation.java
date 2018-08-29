@@ -12,11 +12,11 @@ public class SignupFormValidation {
 	})
 
 	private String name;
-	@Size.List({
-		@Size(min = 2, message = "Ihre Eingabe muss mindesten 4 Buchstaben sein"),
-		@Size(max = 30, message = "Ihre muss max 30 Buchstaben sein")
-	})
-	private String firstName, lastName;
+//	@Size.List({
+//		@Size(min = 2, message = "Ihre Eingabe muss mindesten 4 Buchstaben sein"),
+//		@Size(max = 30, message = "Ihre muss max 30 Buchstaben sein")
+//	})
+//	private String firstName, lastName;
 
 	@Size.List({
 		@Size(min = 6, message = "Ihr Passwort muss mindesten 6 Buchstaben sein"),
@@ -32,8 +32,8 @@ public class SignupFormValidation {
 		this.password = password;
 	}
 
-	@Email(message = "Die Form Ihrer E-Mail ist nicht vollstÃ?ndig")
-	private String email;
+//	@Email(message = "Die Form Ihrer E-Mail ist nicht vollstï¿½?ndig")
+//	private String email;
 
 	public SignupFormValidation() {
 	}
@@ -41,8 +41,8 @@ public class SignupFormValidation {
 	public SignupFormValidation(User user) {
 		user.setName(getName());
 		user.setPassword(getPassword());
-		user.setFirstName(getFirstName());
-		user.setLastName(getLastName());
+//		user.setFirstName(getFirstName());
+//		user.setLastName(getLastName());
 	}
 
 	public String getName() {
@@ -53,27 +53,27 @@ public class SignupFormValidation {
 		this.name = name;
 	}
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
+//	public String getFirstName() {
+//		return firstName;
+//	}
+//
+//	public void setFirstName(String firstName) {
+//		this.firstName = firstName;
+//	}
+//
+//	public String getLastName() {
+//		return lastName;
+//	}
+//
+//	public void setLastName(String lastName) {
+//		this.lastName = lastName;
+//	}
+//
+//	public String getEmail() {
+//		return email;
+//	}
+//
+//	public void setEmail(String email) {
+//		this.email = email;
+//	}
 }

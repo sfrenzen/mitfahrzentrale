@@ -1,4 +1,4 @@
-package de.hsba.a16.bi.mitfahrzentrale.web;
+package de.hsba.a16.bi.mitfahrzentrale.web.validation;
 
 import de.hsba.a16.bi.mitfahrzentrale.trip.Trip;
 

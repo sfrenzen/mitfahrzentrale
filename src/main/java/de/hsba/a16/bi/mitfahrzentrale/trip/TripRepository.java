@@ -13,10 +13,16 @@ import java.util.List;
 @Repository
 @Transactional
 public interface TripRepository extends JpaRepository<Trip, Long> {
-    // Filter-Methode (um nach Abfahrts und/oder Ankunftsort zu suchen
-    @Query("select distinct t from Trip t where t.start = :start and t.end = :end")
-    public Collection<Trip> searchTrips(@Param("start") String start, @Param("end") String end);
+    // Filter-Methode (um nach Abfahrts und/oder Ziel zu suchen)
+    //Findet nur Fahrten die noch freie Plaetze haben
+    @Query("select distinct t from Trip t where (t.start = :start or :start = '') and (t.end = :end or :end = '') " +
+            "and t.bookable = 1 and t.remainingSeats > 0")
+    public List<Trip> findTripsByStartAndEnd(@Param("start") String start, @Param("end") String end);
 
 	@Query("select distinct j from Trip j where j.owner= :user")
 	List<Trip> findAllByOwnedByCurrentUser(@Param("user") User user);
+
+	@Query("select distinct b.trip from Booking b where b.user = :user")
+    List<Trip> findTripsBookedByUser(@Param("user") User user);
+
 }

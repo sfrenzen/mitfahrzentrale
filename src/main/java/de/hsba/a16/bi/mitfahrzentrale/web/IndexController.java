@@ -20,7 +20,9 @@ public class IndexController {
     // jede kann diesen URL aufrufen
     @GetMapping("/login")
     public String login() {
+        //Bevor die Login Seite gezeigt wird, wird geprueft ob der Benutzer anonym oder bereits angemeldet ist,
+        //falls der Benutzer anonym ist, wird die Login Seite angezeigt, sonst wird die Start Seite gezeigt
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		return auth instanceof AnonymousAuthenticationToken ? "login" : "redirect:/";
+		return auth instanceof AnonymousAuthenticationToken ? "login" : "redirect:/index";
     }
 }

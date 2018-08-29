@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -23,7 +24,8 @@ public class UserService {
     @PostConstruct
     public void init() {
         if (userRepository.count() == 0) {
-			createUserByEntiy(new User("admin", "admin", "ADMIN", "Admin", "Last Name Admin", "mo@mail.com"));
+//            createUserByEntiy(new User("admin", "admin", "ADMIN", "Admin", "Last Name Admin", "mo@mail.com"));
+            createUserByEntiy(new User("admin", "admin"));
         }
     }
 
@@ -31,5 +33,9 @@ public class UserService {
     public void createUserByEntiy (User user){
     	user.setPassword(passwordEncoder.encode(user.getPassword()));
     	userRepository.save(user);
+    }
+
+    public User findUserById (Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 }

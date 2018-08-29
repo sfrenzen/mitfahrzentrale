@@ -1,4 +1,6 @@
 package de.hsba.a16.bi.mitfahrzentrale.trip;
+import de.hsba.a16.bi.mitfahrzentrale.user.User;
+
 import javax.persistence.*;
 
 /**
@@ -7,26 +9,37 @@ import javax.persistence.*;
  * todo : Eine Funktion muss hier erstellt weden, um alle Bewertungen einer Fahrt zu rechnen und durch eine lokale variable zu dividieren, um die durchschnit der Wertung zu bekommen
 */
 @Entity
-public class TripRating {
+public class Rating {
 
-	@Id@GeneratedValue
+	@Id
+	@GeneratedValue
 	private Long id;
+
 	@ManyToOne
 	private Trip trip;
-	@Basic(optional = true)
-	private String comment;
+
+	@ManyToOne
+	private User givenBy;
+
 	private int rate;
 
+	@Basic(optional = true)
+	private String comment;
+
 	// f�r die leere Form
-	public TripRating() {
+	public Rating() {
 	}
 
-	public TripRating(Trip trip, String comment, int rate) {
+	public Rating(User givenBy, Trip trip) {
 		// number of user who called this function
+		this.givenBy = givenBy;
 		this.trip = trip;
-		this.comment = comment;
-		this.rate = rate;
 	}
+
+	//
+	// Getter und Setter
+	//
+
 	public Long getId() {
 		return id;
 	}
@@ -34,25 +47,28 @@ public class TripRating {
 	public Trip getTrip() {
 		return trip;
 	}
-
 	public void setTrip(Trip trip) {
 		this.trip = trip;
 	}
 
-	public String getComment() {
-		return comment;
+	public User getGivenBy() {
+		return givenBy;
 	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setGivenBy(User givenBy) {
+		this.givenBy = givenBy;
 	}
 
 	public int getRate() {
 		return rate;
 	}
-
 	public void setRate(int rate) {
 		this.rate = rate;
 	}
 
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 }

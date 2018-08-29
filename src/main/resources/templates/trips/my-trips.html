@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout}">
+<body>
+<div layout:fragment="content">
+	<h3>Meine angebotenen Fahrten:</h3>
+	<div th:if="${!tripsOfferedByUser.isEmpty()}">
+		<!--Angebotene Fahrten-->
+		<table class="table table-responsive-md table-bordered table-success">
+			<tr>
+				<th>Start</th>
+				<th>Ziel</th>
+				<th>Datum</th>
+				<th>Preis</th>
+				<th>Anzahl Plaetze</th>
+				<th>Haustiere</th>
+				<th>Raucher</th>
+				<th>Buchbar</th>
+				<th>Options</th>
+			</tr>
+			<tr th:each="trip :${tripsOfferedByUser}">
+				<td th:text="${trip.start}"></td>
+				<td th:text="${trip.end}"></td>
+				<td th:text="${#dates.format(trip.date, 'dd.MM.yyyy - HH:mm')}"></td>
+				<!-- wenn der Preis ==0 dann wird Free erscheien, sonst erscheint der Preis -->
+				<td th:text="${trip.price==0}?'Free':${trip.price}"></td>
+				<td th:text="${trip.freeSeats}"></td>
+				<td th:text="${trip.pet}?'Ja':'Nein'"></td>
+				<td th:text="${trip.smoking}?'Ja':'Nein'"></td>
+				<td th:text="${trip.bookable}?'Ja':'Nein'"></td>
+				<td>
+					<form th:action="@{'/all-trips/delete/'+${trip.id}}" method="post">
+						<input type="submit" class="btn btn-danger" th:value="Delete">
+					</form>
+					<br>
+					<form th:action="@{'/all-trips/bookable/'+${trip.id}}" method="post">
+						<input type="submit" th:classappend="${trip.bookable}? 'btn btn-success':'btn btn-dark'"
+							   th:value="Buchbar">
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<h3>Meine gebuchten Fahrten:</h3>
+	<div th:if="${!tripsBookedByUser.isEmpty()}">
+		<!--Gebuchte Fahrten-->
+		<table class="table table-responsive-md table-bordered table-success">
+			<tr>
+				<th>Start</th>
+				<th>Ziel</th>
+				<th>Datum</th>
+				<th>Preis</th>
+				<th>Anzahl Plaetze</th>
+				<th>Haustiere</th>
+				<th>Rauchen</th>
+				<th>Anbieter</th>
+				<th>Options</th>
+			</tr>
+			<tr th:each="trip :${tripsBookedByUser}">
+				<td th:text="${trip.start}"></td>
+				<td th:text="${trip.end}"></td>
+				<td th:text="${#dates.format(trip.date, 'dd.MM.yyyy - HH:mm')}"></td>
+				<!-- wenn der Preis ==0 dann wird Free erscheien, sonst erscheint der Preis -->
+				<td th:text="${trip.price==0}?'Free':${trip.price}"></td>
+				<td th:text="${trip.freeSeats}"></td>
+				<td th:text="${trip.pet}?'Ja':'Nein'"></td>
+				<td th:text="${trip.smoking}?'Ja':'Nein'"></td>
+				<td th:text="${trip.owner.name}"></td>
+				<td>
+					<a th:href="${'/trips/rate/'+trip.id}" role="button" class="btn btn-info">Bewerten</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+</body>

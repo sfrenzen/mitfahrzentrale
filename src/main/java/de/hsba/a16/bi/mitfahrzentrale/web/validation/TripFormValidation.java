@@ -1,7 +1,10 @@
 package de.hsba.a16.bi.mitfahrzentrale.web.validation;
 
 import de.hsba.a16.bi.mitfahrzentrale.trip.Trip;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.validation.constraints.*;
+import java.util.Date;
 
 public class TripFormValidation {
 
@@ -10,13 +13,19 @@ public class TripFormValidation {
 		@Size(max = 50, message = "Der Name der Stadt kann nicht mehr als 50 Buchstabe sein")
 	})
 	private String start, end;
-	private String date;
-	private boolean somking, pet,bookable;
-	@Min(value = 1, message = "Mindestens müssen Sie einen freien Platz um einen Trip zulegen")
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
+	@NotNull(message = "Bitte geben Sie ein Datum an")
+	private Date date;
+
+	private boolean smoking, pet,bookable;
+
+	@Min(value = 1, message = "Mindestens mï¿½ssen Sie einen freien Platz um einen Trip zulegen")
 	@Max(value = 14, message = "Mehr als 14 platz geht leider nicht, wir sind keine Buszentrale")
 	private int freeSeats;
+
 	@Min(0)
-	@Max(value = 1000, message = "Mehr als 1000 Euro für einen Platz kann man nicht anfragen")
+	@Max(value = 1000, message = "Mehr als 1000 Euro fï¿½r einen Platz kann man nicht anfragen")
 	private int price;
 
 	public TripFormValidation() {
@@ -28,7 +37,7 @@ public class TripFormValidation {
 		trip.setFreeSeats(getFreeSeats());
 		trip.setDate(getDate());
 		trip.setPrice(getPrice());
-		trip.setSmoking(isSomking());
+		trip.setSmoking(isSmoking());
 		trip.setBookable(isBookable());
 	}
 
@@ -48,20 +57,20 @@ public class TripFormValidation {
 		this.end = end;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date)  {
+	public void setDate(Date date)  {
 		this.date = date;
 	}
 
-	public boolean isSomking() {
-		return somking;
+	public boolean isSmoking() {
+		return smoking;
 	}
 
-	public void setSomking(boolean somking) {
-		this.somking = somking;
+	public void setSmoking(boolean smoking) {
+		this.smoking = smoking;
 	}
 
 	public boolean isPet() {

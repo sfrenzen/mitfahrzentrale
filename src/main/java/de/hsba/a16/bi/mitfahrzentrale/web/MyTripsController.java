@@ -6,19 +6,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-// Personal Controller is to control the post of a user
+// MyTrips Controller is to control the bookings of a user
 @Controller
-public class PersonalController {
+public class MyTripsController {
 	private final TripServices tripServices;
 	private User user;
 
-	public PersonalController(TripServices tripServices) {
+	public MyTripsController(TripServices tripServices) {
 		this.tripServices = tripServices;
 	}
 
-	@GetMapping("/personal")
+	@GetMapping("/my-trips")
 	public String user(Model model) {
-		model.addAttribute("userPosts", tripServices.findUsertrips());
-		return "user/personal";
+		model.addAttribute("tripsOfferedByUser", tripServices.findUsertrips());
+		model.addAttribute("tripsBookedByUser", tripServices.findTripsBookedByCurrentUser());
+		return "trips/my-trips";
 	}
 }

@@ -25,15 +25,15 @@ public class NewTripController {
 		this.tripServices = tripServices;
 		this.formAssembler = formAssembler;
 	}
+
 	// die Seite von neuer Fahrt zu zeigen
-	@PreAuthorize("authenticated")// nur wenn ein Benutzer eingemeldt ist, kann er diesen URL aufrufen
 	@GetMapping("/new-trip") // url
 	public String showForm (Model model){
 		model.addAttribute("newTripForm", new TripFormValidation());
 		return "trips/new-trip";
 	}
+
 	// gleich wie oben
-	@PreAuthorize("authenticated")
 	@PostMapping("/new-trip")
 	public String createTrip (@ModelAttribute("newTripForm")@Valid TripFormValidation tripFormValidation, BindingResult bindingResult){
 		// wenn ein Fehler eintritt

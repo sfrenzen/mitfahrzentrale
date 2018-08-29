@@ -6,87 +6,73 @@
 
 <div layout:fragment="content">
 	<div class="page-header">
-		<h1>signup</h1>
+		<h1>Fahrt anbieten</h1>
 	</div>
-
 
 	<form method="post" class="form-horizontal" th:object="${newTripForm}" th:action="@{/new-trip}">
 		<div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
 			<p>Versuchen Sie Nochmal, die Eingaben einzugeben</p>
 		</div>
-		<label for="inputStart" class="col-sm-2 control-label">Von</label>
+		<label for="inputStart" class="col-sm-2 control-label">Start</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control" id="inputStart" required name="start"  th:field="*{start}" autofocus/>
+			<input type="text" class="form-control" id="inputStart" name="start" th:field="*{start}" autofocus/>
 			<label class="text-danger" th:errors="*{start}"/>
 		</div>
 
-		<div class="form-group ">
-			<label for="inputEnd" class="col-sm-2 control-label">Nach</label>
+		<div class="form-group">
+			<label for="inputEnd" class="col-sm-2 control-label">Ziel</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" id="inputEnd" required  name="end" th:field="*{end}" />
+				<input type="text" class="form-control" id="inputEnd"  name="end" th:field="*{end}" />
 				<label class="text-danger" th:errors="*{end}"/>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputDate" class="col-sm-2 control-label" >Das Datum</label>
+			<label for="inputDate" class="col-sm-2 control-label">Datum</label>
 			<div class="col-sm-10">
-				<input type="datetime-local" class="form-control" min="2018-01-01" required id="inputDate"
+				<input type="datetime-local" class="form-control" id="inputDate"
 					   th:field="*{date}" name="date"/>
 				<label class="text-danger" th:errors="*{date}"/>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputFreeSeat" class="col-sm-2 control-label" >Freie Platze</label>
+			<label for="inputFreeSeat" class="col-sm-2 control-label">Anzahl Platze</label>
 			<div class="col-sm-10">
-				<input type="number" value="0"  min="1" step="1" required  max="14" class="form-control" id="inputFreeSeat" th:field="*{freeSeats}" name="freeSeats"/>
+				<input type="number" value="0" class="form-control" id="inputFreeSeat" th:field="*{freeSeats}" name="freeSeats"/>
 				<label class="text-danger" th:errors="*{freeSeats}"/>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputprice" class="col-sm-2 control-label" >Preis Pro Platz</label>
+			<label for="inputPrice" class="col-sm-2 control-label" >Preis Pro Platz</label>
 			<div class="col-sm-10">
-				<input type="number"  min="0" step="1" max="1000" required  class="form-control" id="inputprice" th:field="*{price}" name="price"/>
+				<input type="number" class="form-control" id="inputPrice" th:field="*{price}" name="price"/>
 				<label class="text-danger" th:errors="*{price}"/>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputprice" class="col-sm-2 control-label" >Haustiere</label>
+			<label for="inputPet" class="col-sm-2 control-label" >Haustiere</label>
 			<div class="col-sm-10">
-				<select id="inputPet" name="pet" class="form-control" required >
-					<option value="">Waehlen Sie bitte</option>
-					<option value="0">Nein, Danke</option>
-					<option value="1">Ja, Gerne</option>
-				</select>
+				<input type="checkbox" class="form-control" id="inputPet" th:field="*{pet}" name="pet"/>
 				<label class="text-danger" th:errors="*{pet}"/>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputprice" class="col-sm-2 control-label" >Rauchen</label>
+			<label for="inputSmoking" class="col-sm-2 control-label">Raucher</label>
 			<div class="col-sm-10">
-				<select id="inputSomking" name="somking"  class="form-control" required >
-					<option value="" >Waehlen Sie bitte</option>
-					<option value="0">Nein, Danke</option>
-					<option value="1">Ja, Gerne</option>
-				</select>
-				<label class="text-danger" th:errors="*{somking}"/>
+				<input type="checkbox" class="form-control" id="inputSmoking" th:field="*{smoking}" name="smoking"/>
+				<label class="text-danger" th:errors="*{smoking}"/>
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="inputprice" class="col-sm-2 control-label" >Buchbar</label>
+			<label for="inputBookable" class="col-sm-2 control-label">Buchbar</label>
 			<div class="col-sm-10">
-				<select id="inputBookable" name="bookable"  class="form-control" required >
-					<option value="" >Waehlen Sie bitte</option>
-					<option value="0">Nein, Danke</option>
-					<option value="1">Ja, Gerne</option>
-				</select>
+				<input type="checkbox" class="form-control" id="inputBookable" th:field="*{bookable}" name="bookable"/>
 				<label class="text-danger" th:errors="*{bookable}"/>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-primary">Anmelden</button>
-			</div>
+			<button type="submit" class="btn btn-primary button-right">Anbieten</button>
+			<a th:href="@{/index}" role="button" class="btn btn-info">Abbrechen</a>
 		</div>
 	</form>
 
