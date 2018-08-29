@@ -35,19 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/", "/index").permitAll()
                     .antMatchers("/js/**", "/css/**").permitAll() // permit JS resources
                     .anyRequest().authenticated()
-//                .antMatchers("/").authenticated()
-//                .antMatchers("/h2-console/**").permitAll() // enable access to the h2-console
-//                .antMatchers("/signup").permitAll()
-//                .antMatchers("/new-trip").permitAll()
-//                .antMatchers("/book-trip/**").permitAll()
-//                .antMatchers("/js/**").permitAll() // permit JS resources
-//                .antMatchers("/users/**").permitAll()
-//                .antMatchers("/further/**").permitAll()
-//                .antMatchers("/index").permitAll()
-//				  .antMatchers("/trips/**").permitAll()
-//			      .antMatchers("/all-trips/**").permitAll()
-//                .antMatchers("/trip-booked").permitAll()
-//                .antMatchers("/new-trip").permitAll()
+
 			        .and()
                 .formLogin()
                     .loginPage("/login")

@@ -7,20 +7,14 @@ import javax.validation.constraints.Size;
 
 public class SignupFormValidation {
 	@Size.List({
-		@Size(min = 4, message = "Ihre Eingabe muss mindesten 4 Buchstaben sein"),
-		@Size(max = 30, message = "Ihre muss max 30 Buchstaben sein")
+		@Size(min = 4, message = "Ihr Nutzername muss mindestens 4 Zeichen lang sein."),
+		@Size(max = 30, message = "Ihr Nutzername darf maximal 30 Zeichen lang sein.")
 	})
 
 	private String name;
-//	@Size.List({
-//		@Size(min = 2, message = "Ihre Eingabe muss mindesten 4 Buchstaben sein"),
-//		@Size(max = 30, message = "Ihre muss max 30 Buchstaben sein")
-//	})
-//	private String firstName, lastName;
-
 	@Size.List({
-		@Size(min = 6, message = "Ihr Passwort muss mindesten 6 Buchstaben sein"),
-		@Size(max = 30, message = "Ihre Password kann max 30 Buchstaben sein")
+		@Size(min = 6, message = "Ihr Passwortmuss mindestens 4 Zeichen lang sein."),
+		@Size(max = 30, message = "Ihre Password darf maximal 30 Zeichen lang sein.")
 	})
 	private String password;
 

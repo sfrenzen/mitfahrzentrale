@@ -4,9 +4,7 @@ import de.hsba.a16.bi.mitfahrzentrale.user.User;
 import org.springframework.stereotype.Component;
 
 /**
- *Form Validierung
- * 
- * // TODO: 08.08.2018 eine kleine Formvalidierung f�r die Bewertung jeweiliches Trips 
+ *Form-Validierung
 */
 
 @Component

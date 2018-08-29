@@ -10,7 +10,6 @@ public class TripFormAssembler {
 		return tripFormValidation;
 	}
 
-	// TODO: 13.08.2018: Datum muss comparable gemacht werden und genau formalliert
 	public Trip update (Trip trip, TripFormValidation tripFormValidation){
 		trip.setBookable(tripFormValidation.isBookable());
 		trip.setSmoking(tripFormValidation.isSmoking());

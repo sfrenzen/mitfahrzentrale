@@ -1,8 +1,34 @@
+/* der Header (Überschriften) */
 .mf-header {
-    margin-bottom: 30px;
+    margin-top: 13px;
+    margin-bottom: 25px;
 }
 
+/* book-trip.hmtl */
 .button-right {
     color: #6f42c1;
     margin-right: 50px;
+}
+
+/* all-trips.html */
+.table-top {
+    margin-top: 15px;
+}
+
+/* comments.html */
+.comment {
+    margin-bottom: 18px;
+}
+.textcomment {
+    font-style: italic;
+}
+
+/* new-trip.html */
+.checkboxes {
+    float: left;
+}
+
+/* rating.html */
+.ratingform {
+    margin-top: 50px;
 }

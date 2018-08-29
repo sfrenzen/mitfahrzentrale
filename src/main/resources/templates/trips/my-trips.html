@@ -4,27 +4,31 @@
 	  layout:decorate="~{layout}">
 <body>
 <div layout:fragment="content">
-	<h3>Meine angebotenen Fahrten:</h3>
+	<div class="page-header mf-header">
+		<h3>
+			Meine angebotenen Fahrten:
+		</h3>
+	</div>
 	<div th:if="${!tripsOfferedByUser.isEmpty()}">
 		<!--Angebotene Fahrten-->
 		<table class="table table-responsive-md table-bordered table-success">
 			<tr>
-				<th>Start</th>
-				<th>Ziel</th>
-				<th>Datum</th>
-				<th>Preis</th>
-				<th>Anzahl Plaetze</th>
+				<th>Abfahrtsort</th>
+				<th>Ankunftsort</th>
+				<th>Datum und Uhrzeit</th>
+				<th>Preis pro Platz (in €)</th>
+				<th>Freie Plätze</th>
 				<th>Haustiere</th>
 				<th>Raucher</th>
 				<th>Buchbar</th>
-				<th>Options</th>
+				<th>Optionen</th>
 			</tr>
 			<tr th:each="trip :${tripsOfferedByUser}">
 				<td th:text="${trip.start}"></td>
 				<td th:text="${trip.end}"></td>
 				<td th:text="${#dates.format(trip.date, 'dd.MM.yyyy - HH:mm')}"></td>
-				<!-- wenn der Preis ==0 dann wird Free erscheien, sonst erscheint der Preis -->
-				<td th:text="${trip.price==0}?'Free':${trip.price}"></td>
+				<!-- wenn der Preis ==0 ist, wird "Kostenlos" erscheinen, sonst erscheint der Preis -->
+				<td th:text="${trip.price==0}?'Kostenlos':${trip.price}"></td>
 				<td th:text="${trip.freeSeats}"></td>
 				<td th:text="${trip.pet}?'Ja':'Nein'"></td>
 				<td th:text="${trip.smoking}?'Ja':'Nein'"></td>
@@ -42,27 +46,33 @@
 			</tr>
 		</table>
 	</div>
-	<h3>Meine gebuchten Fahrten:</h3>
+	<br>
+
+	<div class="mf-header">
+		<h3>
+			Meine gebuchten Fahrten:
+		</h3>
+	</div>
 	<div th:if="${!tripsBookedByUser.isEmpty()}">
 		<!--Gebuchte Fahrten-->
 		<table class="table table-responsive-md table-bordered table-success">
 			<tr>
-				<th>Start</th>
-				<th>Ziel</th>
-				<th>Datum</th>
-				<th>Preis</th>
-				<th>Anzahl Plaetze</th>
+				<th>Abfahrtsort</th>
+				<th>Ankunftsort</th>
+				<th>Datum und Uhrzeit</th>
+				<th>Preis pro Platz (in €)</th>
+				<th>Freie Plätze</th>
 				<th>Haustiere</th>
-				<th>Rauchen</th>
-				<th>Anbieter</th>
-				<th>Options</th>
+				<th>Raucher</th>
+				<th>Buchbar</th>
+				<th>Optionen</th>
 			</tr>
 			<tr th:each="trip :${tripsBookedByUser}">
 				<td th:text="${trip.start}"></td>
 				<td th:text="${trip.end}"></td>
 				<td th:text="${#dates.format(trip.date, 'dd.MM.yyyy - HH:mm')}"></td>
-				<!-- wenn der Preis ==0 dann wird Free erscheien, sonst erscheint der Preis -->
-				<td th:text="${trip.price==0}?'Free':${trip.price}"></td>
+				<!-- wenn der Preis ==0 ist, wird "Kostenlos" erscheinen, sonst erscheint der Preis -->
+				<td th:text="${trip.price==0}?'Kostenlos':${trip.price}"></td>
 				<td th:text="${trip.freeSeats}"></td>
 				<td th:text="${trip.pet}?'Ja':'Nein'"></td>
 				<td th:text="${trip.smoking}?'Ja':'Nein'"></td>

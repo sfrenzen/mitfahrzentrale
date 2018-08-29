@@ -33,7 +33,7 @@ public class Trip {
 	private User owner;
 
 	//@Temporal ist noetig damit Spring eine Date Variable korrekt in Datenbank speichern kann
-	//@DateTimeFormat annotation ist noetig damit datum korrekt angezeigt wird z.B. auf Details Seite
+	//@DateTimeFormat Annotation ist noetig damit das Datum korrekt angezeigt wird z.B. auf der Details-Seite
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private Date date;
@@ -141,64 +141,6 @@ public class Trip {
 		return ratings;
 	}
 
-//	 ???? Brauchen wir das ????
-
-//	public void setRatings(List<Rating> ratings) {
-//		this.ratings = ratings;
-//	}
-
-
-//
-//  Es gibt ein Rating pro Trip und pro Mitfahrer
-//  Das Rating bezieht sich auf den Fahrer
-//  Alle Ratings fuer den Fahrer zusammen ergeben ein Durchnittssrating
-//
-
-
-//	@Transient // diese Spalte wird nicht in der Datenbank gespeichert
-//	private double sum= 0;
-//	@Transient // diese Spalte wird nicht in der Datenbank gespeichert
-//    private double numberOfIteration=0;
-//	// Der Durchschnitt wird hier als double berechnet werden
-//	private double averageRate;
-//	// Der Durchschnitt wird hier als String ausgezeigt, denn es ist einfacher zu formallieren
-//	private String averageRatingInText;
-//
-//	public String getAverageRatingInText() {
-//		// ruffen diese Methode auf, um den Durchschnitt berechnet zu werden
-//		this.averageRateb();
-//		return averageRatingInText;
-//	}
-//
-//	public void setAverageRatingInText(String averageRatingInText) {
-//		this.averageRatingInText = averageRatingInText;
-//	}
-//
-//	// Rechnen von dem Durchschnitt
-//	// TODO: 13.08.2018: Hinweis-> solche Methode k�nnte bei der Buchung angewendet werden, um die Zahl der Verf�gbare Pl�tze bzw. den gesamten Preis zu berechnet.
-//	private double averageRateb(){
-//		for(Rating local:getRatingList()){
-//			sum=(sum+local.getRate());
-//			numberOfIteration++;
-//		}
-//		if(numberOfIteration==0){
-//			// wenn keine Bewertung gibt
-//			averageRatingInText = "No Rating Yet";
-//			return averageRate=0;
-//		}
-//		averageRate=sum/numberOfIteration;
-//		// konvertieren den Double Wert als Text mit Format
-//		averageRatingInText = String.format("%.1f", averageRate);
-//		setAverageRatingInText(averageRatingInText);
-//		setAverageRate(averageRate);
-//		return averageRate;
-//	}
-//	public void setAverageRate(double averageRate) {
-//		this.averageRate = averageRate;
-//	}
-//	public double getAverageRate() {
-//		return averageRate;
-//	}
 
 	public User getOwner() {
 		return owner;

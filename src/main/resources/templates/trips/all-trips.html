@@ -22,30 +22,30 @@
         </div>
         <input type="submit" class="btn btn-outline-info mb-2" th:value="Suchen">
     </form>
-    <table th:if="${!allTrips.empty}" class="table table-responsive-md table-borderless table-success">
+    <table th:if="${!allTrips.empty}" class="table table-top table-responsive-md table-bordered table-success text-center">
         <tr>
-            <th>Start</th>
-            <th>Ziel</th>
-            <th>Datum</th>
-            <th>Preis</th>
-            <th>Freie Plaetze</th>
+            <th>Abfahrtsort</th>
+            <th>Ankunftsort</th>
+            <th>Datum und Uhrzeit</th>
+            <th>Preis pro Platz (in €)</th>
+            <th>Noch verfügbare Plätze</th>
             <th>Haustiere</th>
             <th>Raucher</th>
             <th>Fahrer</th>
-            <th>Fahrer Bewertung</th>
-            <th>Options</th>
+            <th>Fahrer-Bewertung</th>
+            <th>Optionen</th>
         </tr>
         <tr th:each="trip :${allTrips}">
             <td th:text="${trip.start}"></td>
             <td th:text="${trip.end}"></td>
             <td th:text="${#dates.format(trip.date, 'dd.MM.yyyy - HH:mm')}"></td>
-            <!-- wenn der Preis ==0 dann wird Free erscheien, sonst erscheint der Preis -->
-            <td th:text="${trip.price==0}?'Free':${trip.price}"></td>
+            <!-- wenn der Preis ==0 ist, erscheint "Kostenlos", sonst erscheint der Preis -->
+            <td th:text="${trip.price==0}?'Kostenlos':${trip.price}"></td>
             <td th:text="${trip.remainingSeats}"></td>
             <td th:text="${trip.pet}?'Ja':'Nein'"></td>
             <td th:text="${trip.smoking}?'Ja':'Nein'"></td>
             <td th:text="${trip.owner.name}"></td>
-            <td th:text="${trip.owner.averageRating > 0 ? trip.owner.averageRating : 'No rating yet' }"></td>
+            <td th:text="${trip.owner.averageRating > 0 ? trip.owner.averageRating : 'Noch keine Bewertung' }"></td>
             <!--<td th:if="${trip.ownedByCurrentUser}">-->
                 <!--<form th:action="@{'/all-trips/delete/'+${trip.id}}" method="post">-->
                     <!--<input type="submit" class="btn btn-danger" th:value="Delete">-->
@@ -58,6 +58,8 @@
             <td>
                 <!--Buchen Button ist disabled falls Fahrt vom angeldeten Benutzer stammt-->
                 <a th:if="${!trip.isOwnedByCurrentUser()}" th:href="${'/trips/book-trip/'+trip.id}" role="button" class="btn btn-info">Buchen</a>
+                <br>
+                <br>
                 <a th:href="${'/all-trips/'+trip.id}" role="button" class="btn btn-light">Details</a>
             </td>
         </tr>
