@@ -14,7 +14,7 @@ import java.util.List;
 @Transactional
 public interface TripRepository extends JpaRepository<Trip, Long> {
     // Filter-Methode (um nach Abfahrts und/oder Ziel zu suchen)
-    //Findet nur Fahrten die noch freie Plaetze haben
+    // Findet nur Fahrten die noch freie Plaetze haben
     @Query("select distinct t from Trip t where (t.start = :start or :start = '') and (t.end = :end or :end = '') " +
             "and t.bookable = 1 and t.remainingSeats > 0")
     public List<Trip> findTripsByStartAndEnd(@Param("start") String start, @Param("end") String end);

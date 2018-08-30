@@ -69,7 +69,7 @@ public class TripServices {
         return repository.findTripsBookedByUser(User.getCurrentUser());
     }
 
-    // this area is for triprating
+    // Folgender Bereich ist für das TripRating
     //find all rating
     public Rating findTripRating(Long id) {
         return ratingRepository.findById(id).orElse(null);
