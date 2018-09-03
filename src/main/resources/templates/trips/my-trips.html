@@ -78,7 +78,7 @@
 				<td th:text="${trip.smoking}?'Ja':'Nein'"></td>
 				<td th:text="${trip.owner.name}"></td>
 				<td>
-					<a th:href="${'/trips/rate/'+trip.id}" role="button" class="btn btn-info">Bewerten</a>
+					<a th:href="${'/trips/rate/'+trip.id}" role="button" class="btn btn-success">Bewerten</a>
 				</td>
 			</tr>
 		</table>

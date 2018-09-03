@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+
+<body>
+<div layout:fragment="content">
+
+    <div class="page-header mf-header">
+        <h1>Fahrt-Details</h1>
+    </div>
+
+    <!--Trip Details-->
+    <div th:replace="fragments/trip-details-fragment :: content"></div>
+
+    <!--Mitfahrer-->
+    <div th:if="${trip.isOwnedByCurrentUser() || trip.hasBookingForCurrentUser()}">
+        <h3>Mitfahrer:</h3>
+        <div th:if="${!trip.bookings.isEmpty()}">
+            <table class="table table-responsive-md table-bordered table-success">
+                <tr>
+                    <th>Name</th>
+                    <th>Gebuchte Plätze</th>
+                </tr>
+                <tr th:each="booking :${trip.bookings}">
+                    <td th:text="${booking.user.name}"></td>
+                    <td th:text="${booking.bookedSeats}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

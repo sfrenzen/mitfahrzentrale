@@ -13,14 +13,14 @@
     </div>
     <form class="form-inline" th:action="@{'/all-trips/search/'}" method="get">
         <div class="form-group mb-2">
-            <input type="text" class="btn-outline-info form-control" placeholder="Start" name="start"
+            <input type="text" class="btn-outline-success form-control" placeholder="Start" name="start"
                    th:value="${start}">
         </div>
         <div class="form-group mx-sm-3 mb-2">
-            <input type="text" class="btn-outline-info form-control" placeholder="Ziel" name="end"
+            <input type="text" class="btn-outline-success form-control" placeholder="Ziel" name="end"
                    th:value="${end}">
         </div>
-        <input type="submit" class="btn btn-outline-info mb-2" th:value="Suchen">
+        <input type="submit" class="btn btn-outline-success mb-2" th:value="Suchen">
     </form>
     <table th:if="${!allTrips.empty}" class="table table-top table-responsive-md table-bordered table-success text-center">
         <tr>
@@ -57,7 +57,7 @@
             <!--Nicht buchbare Fahrten werden erst gar nicht angezeigt-->
             <td>
                 <!--Buchen Button ist disabled falls Fahrt vom angeldeten Benutzer stammt-->
-                <a th:if="${!trip.isOwnedByCurrentUser()}" th:href="${'/trips/book-trip/'+trip.id}" role="button" class="btn btn-info">Buchen</a>
+                <a th:if="${!trip.isOwnedByCurrentUser()}" th:href="${'/trips/book-trip/'+trip.id}" role="button" class="btn btn-success">Buchen</a>
                 <br>
                 <br>
                 <a th:href="${'/all-trips/'+trip.id}" role="button" class="btn btn-light">Details</a>

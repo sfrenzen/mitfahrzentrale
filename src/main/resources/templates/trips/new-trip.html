@@ -30,7 +30,7 @@
 		</div>
 		<div class="form-group">
 			<label for="inputDate" class="col-sm-2 control-label">Datum und Uhrzeit:</label>
-			<div class="col-sm-10">
+			<div class="col-sm-3">
 				<input type="datetime-local" class="form-control" id="inputDate"
 					   th:field="*{date}" name="date"/>
 				<label class="text-danger" th:errors="*{date}"/>
@@ -38,14 +38,14 @@
 		</div>
 		<div class="form-group">
 			<label for="inputFreeSeat" class="col-sm-2 control-label">Freie Plätze:</label>
-			<div class="col-sm-10">
+			<div class="col-sm-2">
 				<input type="number" value="0" class="form-control" id="inputFreeSeat" th:field="*{freeSeats}" name="freeSeats"/>
 				<label class="text-danger" th:errors="*{freeSeats}"/>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="inputPrice" class="col-sm-2 control-label" >Preis pro Platz (in €):</label>
-			<div class="col-sm-10">
+			<div class="col-sm-2">
 				<input type="number" class="form-control" id="inputPrice" th:field="*{price}" name="price"/>
 				<label class="text-danger" th:errors="*{price}"/>
 			</div>
@@ -59,21 +59,21 @@
 		</div>
 		<div class="form-group">
 			<label for="inputPet" class="col-sm-2 control-label" >Haustiere</label>
-			<div class="col-sm-10">
+			<div class="col-sm-1">
 				<input type="checkbox" class="form-control" id="inputPet" th:field="*{pet}" name="pet"/>
 				<label class="text-danger" th:errors="*{pet}"/>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="inputSmoking" class="col-sm-2 control-label">Raucher</label>
-			<div class="col-sm-10">
+			<div class="col-sm-1">
 				<input type="checkbox" class="form-control" id="inputSmoking" th:field="*{smoking}" name="smoking"/>
 				<label class="text-danger" th:errors="*{smoking}"/>
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="inputBookable" class="col-sm-2 control-label">Buchbar</label>
-			<div class="col-sm-10">
+			<div class="col-sm-1">
 				<input type="checkbox" class="form-control" id="inputBookable" th:field="*{bookable}" name="bookable"/>
 				<label class="text-danger" th:errors="*{bookable}"/>
 			</div>
@@ -81,8 +81,8 @@
 
 		<div class="form-group">
 			<div class="col-sm-10">
-				<button type="submit" class="btn btn-primary button-right">Anbieten</button>
-				<a th:href="@{/index}" role="button" class="btn btn-info">Abbrechen</a>
+				<button type="submit" class="btn btn-success">Anbieten</button>
+				<a th:href="@{/index}" role="button" class="btn btn-success">Abbrechen</a>
 			</div>
 		</div>
 	</form>

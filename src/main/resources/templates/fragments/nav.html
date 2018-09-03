@@ -1,18 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="nav">
+<nav class="navbar navbar-inverse navbar-expand-lg navbar-light bg-light" th:fragment="nav">
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/index">Startseite</a>
+            <li>
+                <!-- Just an image -->
+
+                <a class="navbar-brand" href="/index">
+                    <img th:src="@{'img/greencarlogo.png'}" width="auto" height="auto" alt="Logo"/>
+                </a>
+
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" href="/all-trips">Fahrt finden</a>
+                <a class="nav-link nav-element" href="/all-trips">Fahrt finden</a>
             </li>
             <li class="nav-item" sec:authorize="isAuthenticated()">
-                <a class="nav-link" href="/new-trip">Fahrt anbieten</a>
+                <a class="nav-link nav-element" href="/new-trip">Fahrt anbieten</a>
             </li>
             <li class="nav-item" sec:authorize="isAuthenticated()">
-                <a class="nav-link" href="/my-trips">Meine Fahrten</a>
+                <a class="nav-link nav-element" href="/my-trips">Meine Fahrten</a>
             </li>
         </ul>
         <ul class="navbar-nav mr-auto.justify-content-end">

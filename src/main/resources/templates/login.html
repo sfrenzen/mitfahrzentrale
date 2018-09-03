@@ -4,39 +4,47 @@
 	  layout:decorate="~{layout}">
 <body>
 <div layout:fragment="content">
-	<div class="page-header mf-header">
-		<h1>Einloggen</h1>
-	</div>
-	<form action="/login" method="post" class="form-horizontal">
-		<div th:if="${param.error}" class="alert alert-danger">
-			<div class="col-sm-offset-2 col-sm-10 ">
-				<strong>Login fehlgeschlagen</strong>
+
+	<!-- Masthead -->
+	<header class="masthead-login">
+		<div class="container">
+			<div class="page-header mf-header">
+				<h1>Schön, dass du wieder da bist</h1>
 			</div>
-		</div>
-		<div th:if="${param.logout}" class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<strong>Sie haben sich erfolgreich abgemeldet.</strong>
-			</div>
+			<form action="/login" method="post" class="form-horizontal">
+				<div th:if="${param.error}" class="alert alert-danger">
+					<div class="col-sm-offset-2 col-sm-4 ">
+						<strong>Login fehlgeschlagen</strong>
+					</div>
+				</div>
+				<div th:if="${param.logout}" class="form-group">
+					<div class="col-sm-offset-2 col-sm-6">
+						<strong>Sie haben sich erfolgreich abgemeldet.</strong>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputUsername" class="col-sm-2 control-label">Nutzername</label>
+					<div class="col-sm-4">
+						<input type="text" class="form-control" id="inputUsername" name="username" autofocus/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="inputPassword" class="col-sm-2 control-label">Passwort</label>
+					<div class="col-sm-4">
+						<input type="password" class="form-control" id="inputPassword" name="password"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-success">Anmelden</button>
+					</div>
+				</div>
+			</form>
 		</div>
 
-		<div class="form-group">
-			<label for="inputUsername" class="col-sm-2 control-label">Nutzername</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" id="inputUsername" name="username" autofocus/>
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="inputPassword" class="col-sm-2 control-label">Passwort</label>
-			<div class="col-sm-10">
-				<input type="password" class="form-control" id="inputPassword" name="password"/>
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-primary">Anmelden</button>
-			</div>
-		</div>
-	</form>
+	</header>
+
 
 </div>
 </body>
