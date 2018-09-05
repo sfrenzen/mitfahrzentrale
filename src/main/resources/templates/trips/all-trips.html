@@ -35,6 +35,7 @@
             <th>Fahrer-Bewertung</th>
             <th>Optionen</th>
         </tr>
+		<!-- nur Fahrten mit verfügbaren Plätzen werden gezeigt -->
         <tr th:each="trip :${allTrips}" th:if="${trip.remainingSeats!=0}">
             <td th:text="${trip.start}"></td>
             <td th:text="${trip.end}"></td>
