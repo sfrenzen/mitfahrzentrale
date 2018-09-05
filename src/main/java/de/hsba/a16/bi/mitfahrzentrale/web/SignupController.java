@@ -18,7 +18,6 @@ import javax.validation.Valid;
 public class SignupController {
     private final UserService userService;
     private final SignupFormAssembler formAssembler;
-	// TODO: 13.08.2018 Form Validation fï¿?r diese Seite muss fï¿?r diese Seite erstellt werden 
 
 	public SignupController(UserService userService, SignupFormAssembler formAssembler) {
 		this.userService = userService;
@@ -41,7 +40,6 @@ public class SignupController {
 		try {
 			this.userService.createUserByEntiy(formAssembler.update(user, formValidation));
 		} catch (Exception e) {
-			// TODO: 13.08.2018: Detailierte Exception muss hier angewendet werden
 			return "signup";
 		}
         return "redirect:/index";

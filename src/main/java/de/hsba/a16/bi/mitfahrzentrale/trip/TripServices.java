@@ -3,6 +3,7 @@ package de.hsba.a16.bi.mitfahrzentrale.trip;
 
 import de.hsba.a16.bi.mitfahrzentrale.web.fehler.InvalidOperationException;
 import de.hsba.a16.bi.mitfahrzentrale.user.User;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Service
 @Transactional
+@Component
 public class TripServices {
     // Variable for trip repository
     private final TripRepository repository;

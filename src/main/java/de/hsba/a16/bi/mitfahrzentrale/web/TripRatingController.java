@@ -8,6 +8,7 @@ import de.hsba.a16.bi.mitfahrzentrale.web.fehler.InvalidOperationException;
 import de.hsba.a16.bi.mitfahrzentrale.web.fehler.NotFoundException;
 import de.hsba.a16.bi.mitfahrzentrale.web.validation.RatingForm;
 import de.hsba.a16.bi.mitfahrzentrale.web.validation.RatingFormAssembler;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -27,6 +28,7 @@ public class TripRatingController {
     }
 
     @GetMapping
+	@PreAuthorize("authenticated")
     public String showRating(Model model, @PathVariable("id") Long id) {
 
         Trip trip = tripServices.findTripById(id);
@@ -51,6 +53,7 @@ public class TripRatingController {
     }
 
     @PostMapping // bewertung wird hier behandlet
+	@PreAuthorize("authenticated")
     public String sendRating(Model model,
                              @PathVariable("id") Long id,
                              @ModelAttribute("ratingForm") RatingForm ratingForm,

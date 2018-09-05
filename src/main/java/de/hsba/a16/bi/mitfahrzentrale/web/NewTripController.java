@@ -35,6 +35,7 @@ public class NewTripController {
 
 	// gleich wie oben
 	@PostMapping("/new-trip")
+	@PreAuthorize("authenticated")
 	public String createTrip (@ModelAttribute("newTripForm")@Valid TripFormValidation tripFormValidation, BindingResult bindingResult){
 		// wenn ein Fehler eintritt
 		if (bindingResult.hasErrors()){
