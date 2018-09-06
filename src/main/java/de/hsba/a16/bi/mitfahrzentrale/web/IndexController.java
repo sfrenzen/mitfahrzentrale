@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
 	private TripServices tripServices;
 
-	// Es ist immer noch nicht benutzt .. todo ist es zu diskutieren, was wir in der Index seite Zeigen soll
+
     @GetMapping("/index")
     public String index() {
         return "/index";

@@ -1,6 +1,8 @@
 package de.hsba.a16.bi.mitfahrzentrale.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -9,8 +11,10 @@ import java.util.Optional;
 
 @Service
 @Transactional
+@Component
 public class UserService {
 
+	@Autowired
     private final UserRepository userRepository;
 
     private final PasswordEncoder passwordEncoder;
@@ -20,14 +24,20 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+
 	// Diese Nutzer wurde schon definiert und damit ist die Einlogen schon m�glich
     @PostConstruct
     public void init() {
         if (userRepository.count() == 0) {
-//            createUserByEntiy(new User("admin", "admin", "ADMIN", "Admin", "Last Name Admin", "mo@mail.com"));
+	// This user were initiated to be able to login to the app with empty schemas
             createUserByEntiy(new User("admin", "admin"));
         }
     }
+
+
+	public User getUserByName(String name) {
+		return userRepository.findByName(name);
+	}
 
 	// Einen neuen Nutzer erstellen
     public void createUserByEntiy (User user){

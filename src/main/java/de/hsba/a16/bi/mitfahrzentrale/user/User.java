@@ -7,9 +7,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
-/**
- *todo: Owner verbinden mit dem Trip
-*/
+
 @Entity
 public class User implements Comparable<User> {
 

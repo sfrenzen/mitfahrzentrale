@@ -31,9 +31,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/h2-console/**").permitAll() // enable access to the h2-console
                     .antMatchers("/all-trips/**").permitAll()
                     .antMatchers("/users/*/comments").permitAll()
-                    .antMatchers("/signup").permitAll()
+                    .antMatchers("/signup" ).permitAll()
                     .antMatchers("/", "/index").permitAll()
-                    .antMatchers("/js/**", "/css/**", "/img/**").permitAll() // permit JS resources, mycss and images
+                    .antMatchers("/js/**", "/css/**", "/img/**", "/fragments/**").permitAll() // permit JS resources, mycss, images and fragments
+					.antMatchers("/trips/new-trip","/trips/book-trip","/trips/book-trip/**", "/trips/rate/**").authenticated()
                     .anyRequest().authenticated()
 
 			        .and()
