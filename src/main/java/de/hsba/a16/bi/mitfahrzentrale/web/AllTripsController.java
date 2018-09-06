@@ -26,14 +26,14 @@ public class AllTripsController {
         this.userService = userService;
     }
 
-    // die Seite von allen Fahrt zeigen
+    // die Seite von allen Fahrten zeigen
     @GetMapping("/all-trips")
     public String showForm(Model model) {
         model.addAttribute("allTrips", tripServices.findAllTrips());
         return "trips/all-trips";
     }
 
-    // die Seite von allen Fahrt zeigen
+    // die Seite von allen Fahrt-Details zeigen
     @GetMapping("/all-trips/{id}")
     public String showTripDetails(Model model,
                                   @PathVariable("id") Long id) {
