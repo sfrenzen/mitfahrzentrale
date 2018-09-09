@@ -4,6 +4,7 @@ package de.hsba.a16.bi.mitfahrzentrale.web;
 
 import de.hsba.a16.bi.mitfahrzentrale.user.User;
 import de.hsba.a16.bi.mitfahrzentrale.user.UserService;
+import de.hsba.a16.bi.mitfahrzentrale.web.fehler.InternalServerError;
 import de.hsba.a16.bi.mitfahrzentrale.web.validation.SignupFormAssembler;
 import de.hsba.a16.bi.mitfahrzentrale.web.validation.SignupFormValidation;
 import org.springframework.stereotype.Controller;
@@ -40,7 +41,8 @@ public class SignupController {
 		try {
 			this.userService.createUserByEntiy(formAssembler.update(user, formValidation));
 		} catch (Exception e) {
-			return "signup";
+
+			throw new InternalServerError();
 		}
         return "redirect:/index";
     }

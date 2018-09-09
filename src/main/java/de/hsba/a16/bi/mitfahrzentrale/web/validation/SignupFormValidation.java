@@ -13,7 +13,7 @@ public class SignupFormValidation {
 
 	private String name;
 	@Size.List({
-		@Size(min = 6, message = "Ihr Passwortmuss mindestens 4 Zeichen lang sein."),
+		@Size(min = 6, message = "Ihr Passwort muss mindestens 6 Zeichen lang sein."),
 		@Size(max = 30, message = "Ihre Password darf maximal 30 Zeichen lang sein.")
 	})
 	private String password;

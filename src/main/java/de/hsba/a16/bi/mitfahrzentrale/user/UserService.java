@@ -23,8 +23,6 @@ public class UserService {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
-
-
 	// Diese Nutzer wurde schon definiert und damit ist die Einlogen schon m�glich
     @PostConstruct
     public void init() {
@@ -34,7 +32,7 @@ public class UserService {
         }
     }
 
-
+    // get user by username
 	public User getUserByName(String name) {
 		return userRepository.findByName(name);
 	}
@@ -44,7 +42,6 @@ public class UserService {
     	user.setPassword(passwordEncoder.encode(user.getPassword()));
     	userRepository.save(user);
     }
-
     public User findUserById (Long id) {
         return userRepository.findById(id).orElse(null);
     }
