@@ -62,7 +62,7 @@ public class TripServices {
         trip.setBookable(temp);
     }
 
-    // find the private posts of current user.
+    // Finde meine angebotenen und meine gebuchten Fahrten des current user
     public Collection<Trip> findUsertrips() {
         return repository.findAllByOwnedByCurrentUser(User.getCurrentUser());
     }
