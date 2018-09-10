@@ -23,6 +23,12 @@
 .box-bottom {
     margin-bottom: 32px;
 }
+.container{
+	margin-bottom: 100px
+}
+.foot{
+	position: fixed;left: 0;bottom: 0;width: 100%;	text-align: center; height: 70px
+}
 /* Masthead index all-trips.html - übernommen vom Bootstrap-Template landing page */
 .masthead{position:relative;background-color:#343a40;background:url(../img/indexbild.jpg) no-repeat center center;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;padding-top:8rem;padding-bottom:8rem}header.masthead .overlay{position:absolute;background-color:#212529;height:100%;width:100%;top:0;left:0;opacity:.3}header.masthead h1{font-size:2rem}
 
