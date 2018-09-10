@@ -36,7 +36,7 @@
             <th>Optionen</th>
         </tr>
 		<!-- nur Fahrten mit verfügbaren Plätzen werden gezeigt -->
-        <tr th:each="trip :${allTrips}" th:if="${trip.remainingSeats!=0}">
+        <tr th:each="trip :${allTrips}" th:if="${trip.remainingSeats!=0 && trip.bookable==true}" >
             <td th:text="${trip.start}"></td>
             <td th:text="${trip.end}"></td>
             <td th:text="${#dates.format(trip.date, 'dd.MM.yyyy - HH:mm')}"></td>
