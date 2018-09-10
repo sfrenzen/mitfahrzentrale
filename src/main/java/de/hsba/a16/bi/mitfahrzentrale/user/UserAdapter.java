@@ -6,9 +6,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Collections;
-/**
- *User Adapter
-*/
+
+
 public class UserAdapter implements UserDetails {
 
     private final User user;

@@ -6,7 +6,6 @@ import de.hsba.a16.bi.mitfahrzentrale.trip.TripServices;
 import de.hsba.a16.bi.mitfahrzentrale.web.fehler.NotFoundException;
 import de.hsba.a16.bi.mitfahrzentrale.web.validation.BookingForm;
 import de.hsba.a16.bi.mitfahrzentrale.web.validation.BookingFormAssembler;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -51,7 +50,6 @@ public class BookTripController {
 
     //Methode um Buchung zu erzeugen
     @PostMapping
-	@PreAuthorize("authenticated")
     public String bookTrip(Model model,
                            @PathVariable("id") Long id,
                            @ModelAttribute("bookingForm") @Valid BookingForm bookingForm,

@@ -4,14 +4,12 @@ import de.hsba.a16.bi.mitfahrzentrale.trip.Trip;
 import de.hsba.a16.bi.mitfahrzentrale.trip.TripServices;
 import de.hsba.a16.bi.mitfahrzentrale.web.validation.TripFormAssembler;
 import de.hsba.a16.bi.mitfahrzentrale.web.validation.TripFormValidation;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
 
@@ -35,7 +33,6 @@ public class NewTripController {
 
 	// gleich wie oben
 	@PostMapping("/new-trip")
-	@PreAuthorize("authenticated")
 	public String createTrip (@ModelAttribute("newTripForm")@Valid TripFormValidation tripFormValidation, BindingResult bindingResult){
 		// wenn ein Fehler eintritt
 		if (bindingResult.hasErrors()){

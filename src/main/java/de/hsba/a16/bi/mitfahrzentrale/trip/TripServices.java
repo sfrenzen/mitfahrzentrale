@@ -16,7 +16,7 @@ import java.util.List;
 public class TripServices {
     // Variable for trip repository
     private final TripRepository repository;
-    // Varible for trip rating repository
+    // Variable for trip rating repository
     private final TripRatingRepository ratingRepository;
 
     // Constructor
@@ -49,7 +49,7 @@ public class TripServices {
         this.repository.deleteById(id);
     }
 
-    // make it a trip bookable
+    // make a trip bookable
     public void bookable(Long id) {
         Trip trip = repository.findById(id).orElse(null);
         boolean temp = trip.isBookable();
@@ -97,7 +97,7 @@ public class TripServices {
 
         //Genug freie Plaetze fuer Buchung?
         if(remainingSeats < booking.getBookedSeats()) {
-            throw new InvalidOperationException("Zu wenig freie Plaetze fuer Buchung");
+            throw new InvalidOperationException("Zu wenig freie Plätze für eine Buchung");
         }
 
         // Buchung zu Trip hinzufügen

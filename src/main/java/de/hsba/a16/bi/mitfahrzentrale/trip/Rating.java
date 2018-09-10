@@ -3,9 +3,9 @@ import de.hsba.a16.bi.mitfahrzentrale.user.User;
 
 import javax.persistence.*;
 
-/**
- *Diese Klasse definiert die Bewertung einer Fahrt
-*/
+
+//Diese Klasse definiert die Bewertung einer Fahrt
+
 @Entity
 public class Rating {
 
@@ -24,7 +24,7 @@ public class Rating {
 	@Basic(optional = true)
 	private String comment;
 
-	// f�r die leere Form
+	// für die leere Form
 	public Rating() {
 	}
 

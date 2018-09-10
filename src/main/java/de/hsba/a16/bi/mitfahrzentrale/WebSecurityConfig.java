@@ -33,8 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/users/*/comments").permitAll()
                     .antMatchers("/signup" ).permitAll()
                     .antMatchers("/", "/index").permitAll()
-                    .antMatchers("/js/**", "/css/**", "/img/**", "/fragments/**").permitAll() // permit JS resources, mycss, images and fragments
-					.antMatchers("/trips/new-trip","/trips/book-trip","/trips/book-trip/**", "/trips/rate/**").authenticated()
+                    .antMatchers("/js/**", "/css/**", "/img/**").permitAll() // permit JS resources, mycss, images and fragments
                     .anyRequest().authenticated()
 
 			        .and()

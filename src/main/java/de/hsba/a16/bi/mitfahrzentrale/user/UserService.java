@@ -23,7 +23,7 @@ public class UserService {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
-	// Diese Nutzer wurde schon definiert und damit ist die Einlogen schon m�glich
+
     @PostConstruct
     public void init() {
         if (userRepository.count() == 0) {

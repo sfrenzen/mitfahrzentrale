@@ -35,52 +35,12 @@ public class User implements Comparable<User> {
     //Fuer Benutzer, die keine Anbieter sind, ist der Wert 0
     private float averageRating = 0;
 
-    //    private String role;
-//
-//    @Column(nullable = false)
-//    private String firstName;
-//	@Column(nullable = false)
-//	private String lastName;
-//
-//	public String getEmail() {
-//		return email;
-//	}
-//
-//	public void setEmail(String email) {
-//		this.email = email;
-//	}
-//
-//	@Column(nullable = false)
-//	private String email;
-//
-//	public String getFirstName() {
-//		return firstName;
-//	}
-//
-//	public void setFirstName(String fristName) {
-//		this.firstName = fristName;
-//	}
-//
-//	public String getLastName() {
-//		return lastName;
-//	}
-//
-//	public void setLastName(String lastName) {
-//		this.lastName = lastName;
-//	}
-
 	public User() {
     }
 
-    public User(String name, String password
-//                String role, String firstName, String lastName, String email
-    ) {
+    public User(String name, String password) {
         this.name= name;
         this.password = password;
-//        this.role = role;
-//        this.firstName = firstName;
-//        this.lastName= lastName;
-//        this.email = email;
     }
 
 
@@ -114,13 +74,6 @@ public class User implements Comparable<User> {
         this.averageRating = averageRating;
     }
 
-//    public String getRole() {
-//        return role;
-//    }
-//
-//    public void setRole(String role) {
-//        this.role = role;
-//    }
 
     @Override
     public int compareTo(User other) {

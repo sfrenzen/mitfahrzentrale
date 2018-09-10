@@ -2,7 +2,6 @@ package de.hsba.a16.bi.mitfahrzentrale.web;
 
 import de.hsba.a16.bi.mitfahrzentrale.trip.TripServices;
 import de.hsba.a16.bi.mitfahrzentrale.user.User;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +17,6 @@ public class MyTripsController {
 	}
 
 	@GetMapping("/my-trips")
-	@PreAuthorize("authenticated")
 	public String user(Model model) {
 		model.addAttribute("tripsOfferedByUser", tripServices.findUsertrips());
 		model.addAttribute("tripsBookedByUser", tripServices.findTripsBookedByCurrentUser());

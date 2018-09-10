@@ -6,9 +6,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.*;
-/**
- *Diese Klasse definiert eine Fahrt
-*/
+
 @Entity
 @Table(name = "trip")
 @Component
